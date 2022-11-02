@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: NanoPi-R5S-全插件
+name: NanoPi-R5S-linux-6.0-全插件
 
 on:
   repository_dispatch:
@@ -17,8 +17,8 @@ on:
   #   types: started
 
 env:
-  REPO_URL: https://github.com/DHDAXCW/lede
-  REPO_BRANCH: r5s-test
+  REPO_URL: https://github.com/DHDAXCW/lede-rockchip
+  REPO_BRANCH: stable
   CONFIG_FILE: configs/lean/lean.config
   DIY_SH: scripts/lean.sh
   KMODS_IN_FIRMWARE: true
@@ -66,11 +66,10 @@ jobs:
         echo "OPENWRTROOT=$PWD" >> $GITHUB_ENV
         echo "::set-output name=OPENWRTROOT::$(echo $PWD)"
         mkdir customfeeds
-        git clone --depth=1 https://github.com/coolsnowwolf/packages customfeeds/packages
-        git clone --depth=1 https://github.com/coolsnowwolf/luci customfeeds/luci
+        git clone --depth=1 https://github.com/DHDAXCW/packages customfeeds/packages
+        git clone --depth=1 https://github.com/DHDAXCW/luci customfeeds/luci
         chmod +x ../scripts/*.sh
         ../scripts/hook-feeds.sh
-
     - name: Install Feeds
       run: |
         cd $OPENWRTROOT
@@ -146,13 +145,12 @@ jobs:
         sed -i "s/http:\/\/192.168.123.100:2345\/snapshots/https:\/\/openwrt.cc\/snapshots\/$(date +"%Y-%m-%d")\/lean/g" files/etc/opkg/distfeeds.conf.mirror
         make package/install -j$(nproc) || make package/install -j1 V=s
         make target/install -j$(nproc) || make target/install -j1 V=s
-        rm -rf bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r4*.manifest
-        rm -rf bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r4*-rootfs.tar.gz
+        rm -rf bin/targets/rockchip/armv8/openwrt-rockchip-armv8-*.manifest
+        rm -rf bin/targets/rockchip/armv8/openwrt-rockchip-armv8-*-rootfs.tar.gz
         rm -rf bin/targets/rockchip/armv8/config.buildinfo
         rm -rf bin/targets/rockchip/armv8/packages-server.zip
         make checksum
         echo "::set-output name=GENERATE_STATUS::success"
-
     - name: Generate release tag
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
@@ -168,7 +166,7 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          name: ${{ steps.tag.outputs.release_date }} NanoPi-R5S-linux-5.19_正式版_全插件
+          name: ${{ steps.tag.outputs.release_date }} openwrt-linux-6.0-全插件
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
