@@ -60,8 +60,8 @@ jobs:
         cd openwrt
         rm -rf target/linux/rockchip
         rm -rf package/boot
-        svn co https://github.com/DHDAXCW/lede-rockchip/trunk/package/boot
-        svn co https://github.com/DHDAXCW/lede-rockchip/trunk/target/linux/rockchip
+        svn co https://github.com/DHDAXCW/lede-rockchip/trunk/package/boot package/boot
+        svn co https://github.com/DHDAXCW/lede-rockchip/trunk/target/linux/rockchip target/linux/rockchip
         
     - name: Update Feeds
       id: update
