@@ -61,6 +61,7 @@ rm -rf ./customfeeds/luci/collections/luci-lib-docker
 rm -rf ./customfeeds/luci/applications/luci-app-docker
 rm -rf ./customfeeds/packages/utils/docker
 rm -rf ./customfeeds/luci/applications/luci-app-dockerman
+rm -rf ./package/feeds/packages/docker
 git clone --depth=1 https://github.com/lisaac/luci-app-dockerman
 git clone --depth=1 https://github.com/lisaac/luci-lib-docker
 
