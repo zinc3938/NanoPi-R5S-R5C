@@ -21,6 +21,8 @@ rm -rf customfeeds/luci/applications/luci-app-docker
 rm -rf customfeeds/packages/utils/docker
 rm -rf customfeeds/luci/applications/luci-app-dockerman
 rm -rf package/feeds/packages/docker
+rm -rf package/feeds/packages/docker-compose
+rm -rf package/community/luci-app-dockerman/applications/luci-app-dockerman
 
 # alist
 git clone https://github.com/sbwml/luci-app-alist package/alist
