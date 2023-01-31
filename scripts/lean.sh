@@ -15,6 +15,13 @@ svn export https://github.com/coolsnowwolf/lede/trunk/package/kernel/mac80211 pa
 svn export https://github.com/coolsnowwolf/lede/trunk/package/kernel/mt76 package/kernel/mt76
 rm -rf package/kernel/rtl8821cu
 
+# rm docker
+rm -rf customfeeds/luci/collections/luci-lib-docker
+rm -rf customfeeds/luci/applications/luci-app-docker
+rm -rf customfeeds/packages/utils/docker
+rm -rf customfeeds/luci/applications/luci-app-dockerman
+rm -rf package/feeds/packages/docker
+
 # alist
 git clone https://github.com/sbwml/luci-app-alist package/alist
 rm -rf feeds/packages/lang/golang
@@ -57,11 +64,6 @@ git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan
 
 # Add luci-app-dockerman
-rm -rf ./customfeeds/luci/collections/luci-lib-docker
-rm -rf ./customfeeds/luci/applications/luci-app-docker
-rm -rf ./customfeeds/packages/utils/docker
-rm -rf ./customfeeds/luci/applications/luci-app-dockerman
-rm -rf ./package/feeds/packages/docker
 git clone --depth=1 https://github.com/lisaac/luci-app-dockerman
 git clone --depth=1 https://github.com/lisaac/luci-lib-docker
 
