@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: NanoPi-R5S-R5C-slim
+name: NanoPi-R5S-R5C-stable
 
 on:
   repository_dispatch:
@@ -186,7 +186,7 @@ jobs:
                 - diy    = 定制版
                 - full   = 全插件
                 - docker = 带docker
-                - slim   = 精简版
+                - stable = 稳定版
                 - beggar = 乞丐版" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
           
