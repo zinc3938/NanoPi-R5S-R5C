@@ -194,7 +194,8 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.AC_GH_TOKEN }}
       with:
           name: 📦‍ 固件下载 | NanoPi-R5S-R5C-linux.6.1 | ${{ steps.tag.outputs.release_date }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
