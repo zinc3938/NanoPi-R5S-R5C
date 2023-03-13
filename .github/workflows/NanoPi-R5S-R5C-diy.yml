@@ -194,8 +194,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled() && !failure()
       env:
-          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.AC_GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
           name: 📦‍ 固件下载 | NanoPi-R5S-R5C-linux.6.1 | ${{ steps.tag.outputs.release_date }}
           tag_name: ${{ steps.tag.outputs.release_tag }}
@@ -215,7 +214,7 @@ jobs:
           keep_latest: 5
           delete_tags: true
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
 
     - name: Delete Artifacts
       uses: geekyeggo/delete-artifact@v2
