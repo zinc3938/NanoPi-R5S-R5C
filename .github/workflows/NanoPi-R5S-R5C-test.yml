@@ -61,11 +61,11 @@ jobs:
           echo "release_tag=$(date +"%Y.%m.%d")-Lean" >> $GITHUB_OUTPUT
           echo "release_date=$(date +"%Y.%m.%d")" >> $GITHUB_OUTPUT
           touch release.txt
-          echo "#### 固件信息" >> release.txt
-          echo "🚀 [点我快速下载](${{ steps.wetransfer.outputs.url }})" >> release.txt
-          echo "🔗 后台地址：192.168.10.1" >> release.txt
-          echo "🔑 后台密码：password" >> release.txt
-          echo "固件类型" >> release.txt
+          echo "### 固件信息" >> release.txt
+          echo "- 🚀 [点我快速下载](${{ steps.wetransfer.outputs.url }})" >> release.txt
+          echo "- 🔗 后台地址：192.168.10.1" >> release.txt
+          echo "- 🔑 后台密码：password" >> release.txt
+          echo "### 固件类型" >> release.txt
           echo "- diy    = 定制版" >> release.txt
           echo "- full   = 全插件" >> release.txt
           echo "- docker = 带docker" >> release.txt
