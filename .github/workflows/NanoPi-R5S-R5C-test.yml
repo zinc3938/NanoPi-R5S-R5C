@@ -62,8 +62,8 @@ jobs:
           echo "release_date=$(date +"%Y.%m.%d")" >> $GITHUB_OUTPUT
           touch release.txt
           echo "#### 固件信息" >> release.txt
-          echo "  🚀 [点我快速下载](${{ steps.wetransfer.outputs.url }}) \n
-                  🔗 后台地址：192.168.10.1 /n
+          echo "- 🚀 [点我快速下载](${{ steps.wetransfer.outputs.url }})" >> release.txt
+          echo "  🔗 后台地址：192.168.10.1
                 - 🔑 后台密码：password" >> release.txt
           echo "固件类型
                 - diy    = 定制版
