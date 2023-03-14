@@ -135,7 +135,7 @@ sed -i 's/OpenWrt/R5S/g' package/base-files/files/bin/config_generate
 
 # 修改版本号
 # sed -i 's/R22.3.3/R22.3.3定制版/g' package/lean/default-settings/files/zzz-default-settings
-sed -i 's/OpenWrt/R5S/g' package/lean/default-settings/files/zzz-default-settings
+# sed -i 's/OpenWrt/R5S/g' package/lean/default-settings/files/zzz-default-settings
 
 # 系统信息内添加编译者信息
 sed -i '/<tr><td width="33%"><%:CPU usage (%)%><\/td><td id="cpuusage">-<\/td><\/tr>/a\<tr><td width="33%"><%:Compiler author%><\/td><td>Siriling<\/td><\/tr><\/table>' package/lean/autocore/files/x86/index.htm
