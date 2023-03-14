@@ -67,7 +67,7 @@ svn export https://github.com/linkease/nas-packages/trunk/network/services/ddnst
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 
 # Add Adguardhome
-git clone --depth 1 https://github.com/rufengsuixing/luci-app-adguardhome package/luci-app-adguardhome
+git clone --depth=1 https://github.com/kiddin9/openwrt-adguardhome package/luci-app-adguardhome
 
 # Add ServerChan
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan
