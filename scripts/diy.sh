@@ -18,11 +18,6 @@ svn export https://github.com/openwrt/openwrt/trunk/package/network/services/hos
 rm -rf package/kernel/mac80211/Makefile
 cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
 
-# alist
-git clone https://github.com/sbwml/luci-app-alist package/alist
-rm -rf feeds/packages/lang/golang
-svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
-
 # Clone community packages
 mkdir package/community
 pushd package/community
@@ -81,9 +76,6 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
 
 # Add subconverter
 git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
-
-# Add luci-app-smartdns & smartdns
-svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
 
 # Add luci-app-services-wolplus
 svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
