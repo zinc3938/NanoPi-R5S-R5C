@@ -18,6 +18,11 @@ svn export https://github.com/openwrt/openwrt/trunk/package/network/services/hos
 rm -rf package/kernel/mac80211/Makefile
 cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
 
+# alist
+git clone https://github.com/sbwml/luci-app-alist package/alist
+rm -rf feeds/packages/lang/golang
+svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
+
 # Clone community packages
 mkdir package/community
 pushd package/community
@@ -54,11 +59,12 @@ git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
 # Add OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 
+# Add ddnsto & linkease
+svn export https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto
+svn export https://github.com/linkease/nas-packages/trunk/network/services/ddnsto
+
 # Add luci-app-onliner (need luci-app-nlbwmon)
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
-
-# Add Adguardhome
-git clone --depth=1 https://github.com/kiddin9/openwrt-adguardhome
 
 # Add ServerChan
 git clone --depth=1 https://github.com/tty228/luci-app-serverchan
@@ -76,6 +82,9 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
 
 # Add subconverter
 git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
+
+# Add luci-app-smartdns & smartdns
+svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
 
 # Add luci-app-services-wolplus
 svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
