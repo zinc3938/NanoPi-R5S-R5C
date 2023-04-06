@@ -35,12 +35,8 @@ rm -rf openwrt-package/luci-app-verysync
 
 # Add luci-app-passwall
 git clone https://github.com/xiaorouji/openwrt-passwall
-cd openwrt-passwall
-git checkout 4fd4bf8
-cd ../
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2
 svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
-git checkout 4fd4bf8
 
 # Add luci-app-ssr-plus
 git clone --depth=1 https://github.com/fw876/helloworld
@@ -96,7 +92,7 @@ svn export https://github.com/openwrt/packages/trunk/utils/apk
 git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 
 # Add OpenAppFilter
-git clone --depth=1 https://github.com/DHDAXCW/OpenAppFilter
+git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
 # Add luci-aliyundrive-webdav
 rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
@@ -128,7 +124,7 @@ popd
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_generate
 
 # Test kernel 5.15
 sed -i 's/5.4/6.1/g' ./target/linux/rockchip/Makefile

@@ -7,7 +7,7 @@
 # Author: SuLingGG
 # Blog: https://mlapp.cn
 #=================================================
-# Set default theme to luci-theme-argon 设置默认主题
+# Set default theme to luci-theme-argon
 uci set luci.main.mediaurlbase='/luci-static/argon'
 
 # Disable opkg signature check
