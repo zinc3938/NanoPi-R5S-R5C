@@ -22,7 +22,7 @@ env:
   CONFIG_FILE: configs/lean/diy.config
   DIY_SH: scripts/diy.sh
   KMODS_IN_FIRMWARE: true
-  UPLOAD_WETRANSFER: true #上传到WeTransfer
+  UPLOAD_WETRANSFER: false #上传到WeTransfer
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
