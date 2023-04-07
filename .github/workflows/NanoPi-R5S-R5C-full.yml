@@ -22,7 +22,7 @@ env:
   CONFIG_FILE: configs/lean/lean_full.config
   DIY_SH: scripts/lean.sh
   KMODS_IN_FIRMWARE: true
-  UPLOAD_WETRANSFER: true #上传到WeTransfer
+  UPLOAD_WETRANSFER: false #上传到WeTransfer
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
@@ -167,7 +167,7 @@ jobs:
           echo "release_date=$(date +"%Y.%m.%d")" >> $GITHUB_OUTPUT
           touch release.txt
           echo "## 🗒️ 固件信息" >> release.txt
-          echo "- 🚀 [点我快速下载](${{ steps.wetransfer.outputs.url }})" >> release.txt
+          [ $UPLOAD_WETRANSFER = true ] && echo "- 🚀 [点我快速下载](${{ steps.wetransfer.outputs.url }})" >> release.txt
           echo "- 🔗 后台地址：192.168.10.1" >> release.txt
           echo "- 🔑 后台密码：password" >> release.txt
           echo "## 🍻 固件类型" >> release.txt
