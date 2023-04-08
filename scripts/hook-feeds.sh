@@ -11,6 +11,10 @@
 
 pushd customfeeds
 
+#5G信号插件，拨号工具，驱动
+rm -rf package/wwan
+git clone https://github.com/Siriling/5G-Modem-Support package
+
 # Add luci-app-eqos
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-eqos luci/applications/luci-app-eqos
 
