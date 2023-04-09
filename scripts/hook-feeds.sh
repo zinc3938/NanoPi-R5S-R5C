@@ -11,13 +11,7 @@
 
 #5G信号插件，拨号工具，驱动
 rm -rf package/wwan
-ls
-echo "*****111*****"
 git clone --depth=1 https://github.com/Siriling/5G-Modem-Support package/wwan
-echo "*****222*****"
-ls package
-echo "*****333*****"
-ls package/wwan
 
 pushd customfeeds
 
