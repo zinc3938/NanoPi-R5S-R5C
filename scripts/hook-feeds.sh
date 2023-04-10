@@ -15,6 +15,11 @@ git clone --depth=1 https://github.com/Siriling/5G-Modem-Support package/wwan
 
 pushd customfeeds
 
+# Add iStoreOS
+git clone --depth=1 https://github.com/linkease/istore
+git clone --depth=1 https://github.com/linkease/nas-packages
+git clone --depth=1 https://github.com/linkease/nas-packages-luci
+
 # Add luci-app-eqos
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-eqos luci/applications/luci-app-eqos
 
