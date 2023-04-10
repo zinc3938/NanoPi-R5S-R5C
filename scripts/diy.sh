@@ -75,6 +75,7 @@ git clone --depth=1 https://github.com/lisaac/luci-lib-docker
 # Add iStoreOS
 # git clone --depth=1 https://github.com/linkease/nas-packages
 # git clone --depth=1 https://github.com/linkease/nas-packages-luci
+git clone --depth=1 https://github.com/Siriling/nas-packages-luci.git
 
 # Add luci-theme
 git clone https://github.com/DHDAXCW/theme
