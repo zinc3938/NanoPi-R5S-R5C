@@ -13,12 +13,12 @@
 rm -rf package/wwan
 git clone --depth=1 https://github.com/Siriling/5G-Modem-Support package/wwan
 
-pushd customfeeds
-
 # Add iStoreOS
-git clone --depth=1 https://github.com/linkease/istore
-git clone --depth=1 https://github.com/linkease/nas-packages
-git clone --depth=1 https://github.com/linkease/nas-packages-luci
+echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
+echo 'src-git nas https://github.com/linkease/nas-packages.git;master' >> feeds.conf.default
+echo 'src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' >> feeds.conf.default
+
+pushd customfeeds
 
 # Add luci-app-eqos
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-eqos luci/applications/luci-app-eqos

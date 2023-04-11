@@ -72,11 +72,6 @@ rm -rf ../../customfeeds/luci/applications/luci-app-dockerman
 git clone --depth=1 https://github.com/lisaac/luci-app-dockerman
 git clone --depth=1 https://github.com/lisaac/luci-lib-docker
 
-# Add iStoreOS
-# git clone --depth=1 https://github.com/linkease/istore istore
-# git clone --depth=1 https://github.com/linkease/nas-packages
-# git clone --depth=1 https://github.com/linkease/nas-packages-luci
-
 # Add luci-theme
 git clone https://github.com/DHDAXCW/theme
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
