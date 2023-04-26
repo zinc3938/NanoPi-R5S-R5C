@@ -15,7 +15,7 @@
 
 # 一、简介
 
-该项目从[DHDAXCW](https://github.com/DHDAXCW)/[NanoPi-R5S-R5C](https://github.com/DHDAXCW/NanoPi-R5S-R5C)进行定制，添加5G模块支持
+该项目从[DHDAXCW/NanoPi-R5S-R5C](https://github.com/DHDAXCW/NanoPi-R5S-R5C)进行定制，添加5G模块支持
 
 # 二、源代码地址
 
