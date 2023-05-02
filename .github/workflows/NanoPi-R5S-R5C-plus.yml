@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: NanoPi-R5S-R5C-beggar
+name: NanoPi-R5S-R5C-plus
 
 on:
   repository_dispatch:
@@ -19,7 +19,7 @@ on:
 env:
   REPO_URL: https://github.com/DHDAXCW/lede-rockchip
   REPO_BRANCH: stable
-  CONFIG_FILE: configs/lean/lean_beggar.config
+  CONFIG_FILE: configs/lean/lean.config
   DIY_SH: scripts/lean.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_RELEASE: true
@@ -40,22 +40,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Initialization Environment
-      env:
-        DEBIAN_FRONTEND: noninteractive
-      run: |
-        echo -e "Total CPU cores\t: $(nproc)"
-        cat /proc/cpuinfo | grep 'model name'
-        free -h
-        uname -a
-        [ -f /proc/version ] && cat /proc/version
-        [ -f /etc/issue.net ] && cat /etc/issue.net
-        [ -f /etc/issue ] && cat /etc/issue
-        ulimit -a
-        
     - name: Clone Source Code
       run: |
-        df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         
@@ -154,13 +140,13 @@ jobs:
         rm -rf openwrt-rockchip-armv8-rootfs.tar.gz
         rm -rf config.buildinfo
         rm -rf packages-server.zip
-        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5s-ext4-sysupgrade.img.gz beggar-friendlyarm_nanopi-r5s-ext4-sysupgrade.img.gz 
-        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5c-ext4-sysupgrade.img.gz beggar-friendlyarm_nanopi-r5c-ext4-sysupgrade.img.gz 
-        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5s-squashfs-sysupgrade.img.gz beggar-friendlyarm_nanopi-r5s-squashfs-sysupgrade.img.gz
-        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5c-squashfs-sysupgrade.img.gz beggar-friendlyarm_nanopi-r5c-squashfs-sysupgrade.img.gz
+        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5s-ext4-sysupgrade.img.gz full-friendlyarm_nanopi-r5s-ext4-sysupgrade.img.gz 
+        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5c-ext4-sysupgrade.img.gz full-friendlyarm_nanopi-r5c-ext4-sysupgrade.img.gz 
+        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5s-squashfs-sysupgrade.img.gz full-friendlyarm_nanopi-r5s-squashfs-sysupgrade.img.gz
+        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5c-squashfs-sysupgrade.img.gz full-friendlyarm_nanopi-r5c-squashfs-sysupgrade.img.gz
         popd
         make checksum
-        mv bin/targets/rockchip/armv8/sha256sums bin/targets/rockchip/armv8/beggar-sha256sums
+        mv bin/targets/rockchip/armv8/sha256sums bin/targets/rockchip/armv8/full-sha256sums
         echo "GENERATE_STATUS=success" >> $GITHUB_OUTPUT
         
     - name: Generate release tag
@@ -208,3 +194,4 @@ jobs:
       with:
          name: |
             bin-archive
+            
