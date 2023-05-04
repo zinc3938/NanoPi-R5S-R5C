@@ -127,18 +127,18 @@ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 
 # 修改主机名字
-# sed -i 's/OpenWrt/R5S/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/R5S/g' package/base-files/files/bin/config_generate
 
 # 修改版本号
 # sed -i 's/R22.3.3/R22.3.3定制版/g' package/lean/default-settings/files/zzz-default-settings
 # sed -i 's/OpenWrt/R5S/g' package/lean/default-settings/files/zzz-default-settings
 
 # 系统信息内添加编译者信息
-# sed -i '/<tr><td width="33%"><%:CPU usage (%)%><\/td><td id="cpuusage">-<\/td><\/tr>/a\<tr><td width="33%"><%:Compiler author%><\/td><td>Siriling<\/td><\/tr><\/table>' package/lean/autocore/files/x86/index.htm
-# sed -i '/<tr><td width="33%"><%:CPU usage (%)%><\/td><td id="cpuusage">-<\/td><\/tr>/a\<tr><td width="33%"><%:Compiler author%><\/td><td>Siriling<\/td><\/tr><\/table>' package/lean/autocore/files/arm/index.htm
+sed -i '/<tr><td width="33%"><%:CPU usage (%)%><\/td><td id="cpuusage">-<\/td><\/tr>/a\<tr><td width="33%"><%:Compiler author%><\/td><td>Siriling<\/td><\/tr><\/table>' package/lean/autocore/files/x86/index.htm
+sed -i '/<tr><td width="33%"><%:CPU usage (%)%><\/td><td id="cpuusage">-<\/td><\/tr>/a\<tr><td width="33%"><%:Compiler author%><\/td><td>Siriling<\/td><\/tr><\/table>' package/lean/autocore/files/arm/index.htm
 
 # 给添加的代码添加汉化
-# sed -i '$a\\nmsgid "Compiler author"\nmsgstr "编译作者"' feeds/luci/modules/luci-base/po/zh-cn/base.po
+sed -i '$a\\nmsgid "Compiler author"\nmsgstr "编译作者"' feeds/luci/modules/luci-base/po/zh-cn/base.po
 
 # Test kernel 5.15
 sed -i 's/5.4/6.1/g' ./target/linux/rockchip/Makefile
