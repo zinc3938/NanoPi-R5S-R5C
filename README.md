@@ -9,9 +9,11 @@
 
 [三、固件说明](#三固件说明)
 
-[四、插件展示](#四插件展示)
+[四、资源链接](#四资源链接)
 
-[五、鸣谢](#五鸣谢)
+[五、插件展示](#五插件展示)
+
+[六、鸣谢](#鸣谢)
 
 # 一、简介
 
@@ -33,16 +35,19 @@
 - 稳定版：含有日常使用插件
 - 乞丐版：最小化精简固件
 - 下载地址： https://github.com/Siriling/NanoPi-R5S-R5C/releases
-- 关于r5s刷机方法请参考dn2刷机：https://github.com/DHDAXCW/DoorNet-1-2/blob/mere/emmc.md
-- USB驱动程序：DriverAssitant_v5.1.1.zip
-- EMMC烧录软件内置提供：RKDevTool_Release_v2.86.zip
-# 四、插件展示
+
+# 四、资源链接
+
+- 关于r5s刷机方法请参考dn2刷机：[点击查看](https://github.com/DHDAXCW/DoorNet-1-2/blob/mere/emmc.md)
+- USB烧录驱动程序：[点击查看](https://github.com/Siriling/NanoPi-R5S-R5C/tree/main/tools/%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F)
+- EMMC烧录软件：[点击查看](https://github.com/Siriling/NanoPi-R5S-R5C/tree/main/tools/%E7%83%A7%E5%BD%95%E8%BD%AF%E4%BB%B6)
+- 5G模组拨号脚本：[点击查看](https://github.com/Siriling/NanoPi-R5S-R5C/tree/main/tools/5G%E6%8B%A8%E5%8F%B7%E8%84%9A%E6%9C%AC)
+
+# 五、插件展示
 
 ![image](images/20.jpg)
 
-# 五、鸣谢
-
-特别感谢以下项目：
+# 六、鸣谢
 
 Openwrt 官方项目：
 
