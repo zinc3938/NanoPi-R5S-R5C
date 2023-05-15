@@ -45,7 +45,7 @@
 
 # 五、插件展示
 
-![image](images/20.jpg)
+![plugins](images/plugins.jpg)
 
 # 六、鸣谢
 
