@@ -145,7 +145,7 @@ sed -i '$a\\nmsgid "Resources link"\nmsgstr "资源链接"' feeds/luci/modules/l
 
 # 修改默认背景
 rm -rf customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-cp -f $GITHUB_WORKSPACE/data/bg1.jpg customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/images/bg1.jpg customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # Test kernel 5.15
 sed -i 's/5.4/6.1/g' ./target/linux/rockchip/Makefile
