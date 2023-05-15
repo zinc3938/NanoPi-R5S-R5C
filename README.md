@@ -34,10 +34,11 @@
 - 乞丐版：最小化精简固件
 - 下载地址： https://github.com/Siriling/NanoPi-R5S-R5C/releases
 - 关于r5s刷机方法请参考dn2刷机：https://github.com/DHDAXCW/DoorNet-1-2/blob/mere/emmc.md
-- 烧录软件内置提供：rk356x-MiniLoaderAll.bin
+- USB驱动程序：DriverAssitant_v5.1.1.zip
+- EMMC烧录软件内置提供：RKDevTool_Release_v2.86.zip
 # 四、插件展示
 
-![image](https://user-images.githubusercontent.com/74764072/183227361-e8bdb023-5514-437d-97e8-e13ca4285035.png)
+![image](images/20.jpg)
 
 # 五、鸣谢
 
