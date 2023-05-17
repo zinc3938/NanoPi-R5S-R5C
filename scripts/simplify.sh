@@ -18,11 +18,6 @@ svn export https://github.com/openwrt/openwrt/trunk/package/network/services/hos
 rm -rf package/kernel/mac80211/Makefile
 cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
 
-# alist
-git clone https://github.com/sbwml/luci-app-alist package/alist
-rm -rf feeds/packages/lang/golang
-svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
-
 # Clone community packages
 mkdir package/community
 pushd package/community
@@ -32,14 +27,6 @@ git clone --depth=1 https://github.com/Lienol/openwrt-package
 rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
 rm -rf openwrt-package/verysync
 rm -rf openwrt-package/luci-app-verysync
-
-# Add luci-app-passwall
-git clone https://github.com/xiaorouji/openwrt-passwall
-git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2
-svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
-
-# Add luci-app-ssr-plus
-git clone --depth=1 https://github.com/fw876/helloworld
 
 # Add luci-app-unblockneteasemusic
 rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
@@ -55,15 +42,8 @@ git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
 # Add OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 
-# Add ddnsto & linkease
-svn export https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto
-svn export https://github.com/linkease/nas-packages/trunk/network/services/ddnsto
-
 # Add luci-app-onliner (need luci-app-nlbwmon)
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
-
-# Add ServerChan
-git clone --depth=1 https://github.com/tty228/luci-app-serverchan
 
 # Add luci-app-dockerman
 rm -rf ../../customfeeds/luci/collections/luci-lib-docker
@@ -76,12 +56,6 @@ git clone --depth=1 https://github.com/lisaac/luci-lib-docker
 git clone https://github.com/DHDAXCW/theme
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
 
-# Add subconverter
-git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
-
-# Add luci-app-smartdns & smartdns
-svn export https://github.com/281677160/openwrt-package/trunk/luci-app-smartdns
-
 # Add luci-app-services-wolplus
 svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
 
@@ -93,18 +67,6 @@ git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
 
 # Add OpenAppFilter
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
-
-# Add luci-aliyundrive-webdav
-rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
-rm -rf ../../customfeeds/packages/multimedia/aliyundrive-webdav
-svn export https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
-svn export https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
-popd
-
-# Add Pandownload
-pushd package/lean
-svn export https://github.com/immortalwrt/packages/trunk/net/pandownload-fake-server
-popd
 
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
@@ -136,8 +98,6 @@ sed -i 's/OpenWrt/R5S/g' package/base-files/files/bin/config_generate
 # 系统信息内添加编译者信息
 sed -i '/<tr><td width="33%"><%:CPU usage (%)%><\/td><td id="cpuusage">-<\/td><\/tr>/a\<tr><td width="33%"><%:Compiler author%><\/td><td>Siriling<\/td><\/tr><tr><td width="33%"><%:Resources link%><\/td><td><a target="_blank" style="padding-right: 20px;" href="https://github.com/Siriling/NanoPi-R5S-R5C">固件仓库<\/a><a target="_blank" style="padding-left: 20px;padding-right: 20px;" href="https://blog.siriling.com:1212/2023/03/18/openwrt-5g-modem">模组教程<\/a><\/td><\/tr>' package/lean/autocore/files/x86/index.htm
 sed -i '/<tr><td width="33%"><%:CPU usage (%)%><\/td><td id="cpuusage">-<\/td><\/tr>/a\<tr><td width="33%"><%:Compiler author%><\/td><td>Siriling<\/td><\/tr><tr><td width="33%"><%:Resources link%><\/td><td><a target="_blank" style="padding-right: 20px;" href="https://github.com/Siriling/NanoPi-R5S-R5C">固件仓库<\/a><a target="_blank" style="padding-left: 20px;padding-right: 20px;" href="https://blog.siriling.com:1212/2023/03/18/openwrt-5g-modem">模组教程<\/a><\/td><\/tr>' package/lean/autocore/files/arm/index.htm
-
-style="padding-right: 21px;padding-left: 21px;"
 
 # 给添加的代码添加汉化
 sed -i '$a\\nmsgid "Compiler author"\nmsgstr "编译作者"' feeds/luci/modules/luci-base/po/zh-cn/base.po
