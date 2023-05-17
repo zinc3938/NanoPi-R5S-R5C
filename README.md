@@ -17,7 +17,7 @@
 
 # 一、简介
 
-该项目从[DHDAXCW/NanoPi-R5S-R5C](https://github.com/DHDAXCW/NanoPi-R5S-R5C)进行定制，添加5G模块支持
+该项目从[DHDAXCW/NanoPi-R5S-R5C](https://github.com/DHDAXCW/NanoPi-R5S-R5C)进行定制，添加5G模块支持和个人定制化
 
 # 二、源代码地址
 
@@ -25,16 +25,22 @@
 - Luci https://github.com/DHDAXCW/luci
 - packages https://github.com/DHDAXCW/packages
 
-# 三、固件说明
+# 三、固件
 
-**该固件支持大多数5G模块，支持网卡MT7921系列和AW7916-NPD**
+## 说明
 
-- 定制版：基于Docker版添加上5G模块的支持
-- 正式版（含超频）：对折腾的，可以选择，电压一定要考虑。超频都是升压的，会造成不稳定的。比如跑cpu测试容易升压等。
-- Docker版：含Docker插件，会导致udp转发失效 慎用哦，只要别开passwall的udp，啥都不影响使用！
-- 稳定版：含有日常使用插件
-- 乞丐版：最小化精简固件
-- 下载地址： https://github.com/Siriling/NanoPi-R5S-R5C/releases
+- 支持大多数5G模块
+- 支持网卡MT7921系列
+- 完美支持AW7916大功率网卡（minipcie电流要求3a以上才不会掉卡）
+
+## 类型
+
+- 完整版（full）：5G支持+网卡支持+多个插件
+- 精简版（simplify）：5G支持+网卡支持+OpenClash+AD Guardhome等少量常用插件
+
+## 下载
+
+固件下载地址： https://github.com/Siriling/NanoPi-R5S-R5C/releases
 
 # 四、资源链接
 

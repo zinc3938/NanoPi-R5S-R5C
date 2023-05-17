@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: NanoPi-R5S-R5C-full
+name: NanoPi-R5S-R5C-完整版
 
 on:
   repository_dispatch:
@@ -19,8 +19,8 @@ on:
 env:
   REPO_URL: https://github.com/DHDAXCW/lede-rockchip
   REPO_BRANCH: stable
-  CONFIG_FILE: configs/lean/lean_full.config
-  DIY_SH: scripts/lean.sh
+  CONFIG_FILE: configs/lean/full.config
+  DIY_SH: scripts/diy.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_WETRANSFER: false #上传到WeTransfer
   UPLOAD_RELEASE: true
@@ -28,7 +28,7 @@ env:
 
 jobs:
   Build:
-    runs-on: ubuntu-20.04
+    runs-on: self-hosted
     outputs:
       OPENWRTROOT: ${{ steps.update.outputs.OPENWRTROOT }}
       PLATFORM: ${{ steps.compile.outputs.PLATFORM }}
@@ -41,8 +41,22 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Initialization Environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        echo -e "Total CPU cores\t: $(nproc)"
+        cat /proc/cpuinfo | grep 'model name'
+        free -h
+        uname -a
+        [ -f /proc/version ] && cat /proc/version
+        [ -f /etc/issue.net ] && cat /etc/issue.net
+        [ -f /etc/issue ] && cat /etc/issue
+        ulimit -a
+        
     - name: Clone Source Code
       run: |
+        df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         
@@ -57,6 +71,7 @@ jobs:
         git clone --depth=1 https://github.com/DHDAXCW/luci customfeeds/luci
         chmod +x ../scripts/*.sh
         ../scripts/hook-feeds.sh
+        
     - name: Install Feeds
       run: |
         cd $OPENWRTROOT
@@ -149,7 +164,7 @@ jobs:
         make checksum
         mv bin/targets/rockchip/armv8/sha256sums bin/targets/rockchip/armv8/full-sha256sums
         echo "GENERATE_STATUS=success" >> $GITHUB_OUTPUT
-        
+
     - name: Upload firmware to WeTransfer
       id: wetransfer
       if: steps.generate.outputs.GENERATE_STATUS == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled() && !failure()
@@ -171,16 +186,13 @@ jobs:
           echo "- 🔗 后台地址：192.168.10.1" >> release.txt
           echo "- 🔑 后台密码：password" >> release.txt
           echo "## 🍻 固件类型" >> release.txt
-          echo "- diy    = 定制版" >> release.txt
-          echo "- full   = 全插件" >> release.txt
-          echo "- docker = 带docker" >> release.txt
-          echo "- stable = 稳定版" >> release.txt
-          echo "- beggar = 乞丐版" >> release.txt
+          echo "- 完整版：full" >> release.txt
+          echo "- 精简版：simplify" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
           
     - name: Upload firmware to release
       uses: softprops/action-gh-release@v1
-      if: steps.tag.outputs.status == 'success' && !cancelled()
+      if: steps.tag.outputs.status == 'success' && !cancelled() && !failure()
       env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
       with:
@@ -209,4 +221,3 @@ jobs:
       with:
          name: |
             bin-archive
-            

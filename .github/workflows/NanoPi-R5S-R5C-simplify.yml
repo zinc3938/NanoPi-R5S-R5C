@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: NanoPi-R5S-R5C-diy
+name: NanoPi-R5S-R5C-精简版
 
 on:
   repository_dispatch:
@@ -19,7 +19,7 @@ on:
 env:
   REPO_URL: https://github.com/DHDAXCW/lede-rockchip
   REPO_BRANCH: stable
-  CONFIG_FILE: configs/lean/diy.config
+  CONFIG_FILE: configs/lean/simplify.config
   DIY_SH: scripts/diy.sh
   KMODS_IN_FIRMWARE: true
   UPLOAD_WETRANSFER: false #上传到WeTransfer
@@ -156,13 +156,13 @@ jobs:
         rm -rf openwrt-rockchip-armv8-rootfs.tar.gz
         rm -rf config.buildinfo
         rm -rf packages-server.zip
-        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5s-ext4-sysupgrade.img.gz diy-friendlyarm_nanopi-r5s-ext4-sysupgrade.img.gz 
-        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5c-ext4-sysupgrade.img.gz diy-friendlyarm_nanopi-r5c-ext4-sysupgrade.img.gz 
-        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5s-squashfs-sysupgrade.img.gz diy-friendlyarm_nanopi-r5s-squashfs-sysupgrade.img.gz
-        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5c-squashfs-sysupgrade.img.gz diy-friendlyarm_nanopi-r5c-squashfs-sysupgrade.img.gz
+        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5s-ext4-sysupgrade.img.gz simplify-friendlyarm_nanopi-r5s-ext4-sysupgrade.img.gz 
+        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5c-ext4-sysupgrade.img.gz simplify-friendlyarm_nanopi-r5c-ext4-sysupgrade.img.gz 
+        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5s-squashfs-sysupgrade.img.gz simplify-friendlyarm_nanopi-r5s-squashfs-sysupgrade.img.gz
+        mv openwrt-rockchip-armv8-friendlyarm_nanopi-r5c-squashfs-sysupgrade.img.gz simplify-friendlyarm_nanopi-r5c-squashfs-sysupgrade.img.gz
         popd
         make checksum
-        mv bin/targets/rockchip/armv8/sha256sums bin/targets/rockchip/armv8/diy-sha256sums
+        mv bin/targets/rockchip/armv8/sha256sums bin/targets/rockchip/armv8/simplify-sha256sums
         echo "GENERATE_STATUS=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to WeTransfer
@@ -186,11 +186,8 @@ jobs:
           echo "- 🔗 后台地址：192.168.10.1" >> release.txt
           echo "- 🔑 后台密码：password" >> release.txt
           echo "## 🍻 固件类型" >> release.txt
-          echo "- diy    = 定制版" >> release.txt
-          echo "- full   = 全插件" >> release.txt
-          echo "- docker = 带docker" >> release.txt
-          echo "- stable = 稳定版" >> release.txt
-          echo "- beggar = 乞丐版" >> release.txt
+          echo "- 完整版：full" >> release.txt
+          echo "- 精简版：simplify" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
           
     - name: Upload firmware to release
