@@ -30,13 +30,20 @@
 ## 说明
 
 - 支持大多数5G模块
+- 支持5G模块使用USB或PCIE通信
 - 支持网卡MT7921系列
 - 完美支持AW7916大功率网卡（minipcie电流要求3a以上才不会掉卡）
 
 ## 类型
 
+### 6.x内核
+
 - 完整版（full）：5G支持+网卡支持+多个插件
 - 精简版（simplify）：5G支持+网卡支持+OpenClash+AD Guardhome等少量常用插件
+
+### 5.x内核
+
+- 特制版（special）：信号插件+5G支持+网卡支持+OpenClash+AD Guardhome等少量常用插件
 
 ## 下载
 
