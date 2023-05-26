@@ -7,11 +7,11 @@
 
 [二、源代码地址 ](#二源代码地址)
 
-[三、固件说明](#三固件说明)
+[三、固件](#三固件)
 
-[四、资源链接](#四资源链接)
+[四、资源](#四资源)
 
-[五、插件展示](#五插件展示)
+[五、展示](#五展示)
 
 [六、鸣谢](#六鸣谢)
 
@@ -49,17 +49,17 @@
 
 固件下载地址： https://github.com/Siriling/NanoPi-R5S-R5C/releases
 
-# 四、资源链接
+# 四、资源
 
 - 关于r5s刷机方法请参考dn2刷机：[点击查看](https://github.com/DHDAXCW/DoorNet-1-2/blob/mere/emmc.md)
 - USB烧录驱动程序：[点击查看](https://github.com/Siriling/NanoPi-R5S-R5C/tree/main/tools/%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F)
 - EMMC烧录软件：[点击查看](https://github.com/Siriling/NanoPi-R5S-R5C/tree/main/tools/%E7%83%A7%E5%BD%95%E8%BD%AF%E4%BB%B6)
 - 5G模组拨号脚本：[点击查看](https://github.com/Siriling/NanoPi-R5S-R5C/tree/main/tools/5G%E6%A8%A1%E7%BB%84%E6%8B%A8%E5%8F%B7%E8%84%9A%E6%9C%AC)
 
-# 五、插件展示
-
+# 五、展示
+## 概览
 ![overview](images/overview.png)
-
+## 插件
 ![plugins](images/plugins.png)
 
 # 六、鸣谢
