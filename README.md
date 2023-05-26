@@ -58,7 +58,9 @@
 
 # 五、插件展示
 
-![plugins](images/plugins.jpg)
+![overview](images/overview.png)
+
+![plugins](images/plugins.png)
 
 # 六、鸣谢
 
