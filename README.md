@@ -38,12 +38,12 @@
 
 ### 6.x内核
 
-- 完整版（full）：5G支持+网卡支持+多个插件
-- 精简版（simplify）：5G支持+网卡支持+OpenClash+AD Guardhome等少量常用插件
+- 完整版（full）：5G支持+网卡支持+docker+多个插件
+- 精简版（simplify）：5G支持+网卡支持+docker+OpenClash+AD Guardhome等少量常用插件
 
 ### 5.x内核
 
-- 特制版（special）：信号插件+5G支持+网卡支持+OpenClash+AD Guardhome等少量常用插件
+- 特制版（special）：信号插件+5G支持+网卡支持+docker+OpenClash+AD Guardhome等少量常用插件
 
 ## 下载
 
