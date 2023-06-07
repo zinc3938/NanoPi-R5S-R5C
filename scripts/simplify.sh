@@ -95,5 +95,8 @@ sed -i '$a\\nmsgid "Resources link"\nmsgstr "资源链接"' feeds/luci/modules/l
 rm -rf customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
+# 使用自己的配置
+cp -f $GITHUB_WORKSPACE/config/applications/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
+
 # pcie patch
 cp -f $GITHUB_WORKSPACE/999-fuck-rockchip-pcie.patch target/linux/rockchip/patches-6.1/999-fuck-rockchip-pcie.patch
