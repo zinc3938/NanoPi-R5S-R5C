@@ -21,18 +21,19 @@
 
 # 二、源代码地址
 
-- lede https://github.com/DHDAXCW/lede-rockchip
-- Luci https://github.com/DHDAXCW/luci
-- packages https://github.com/DHDAXCW/packages
+- lede：https://github.com/DHDAXCW/lede-rockchip
+- Luci：https://github.com/DHDAXCW/luci
+- packages：https://github.com/DHDAXCW/packages
 
 # 三、固件
 
 ## 说明
 
-- 支持大多数5G模块
-- 支持5G模块使用USB或PCIE通信
 - 支持网卡MT7921系列
 - 完美支持AW7916大功率网卡（minipcie电流要求3a以上才不会掉卡）
+- 支持大多数5G模块
+- 支持5G模块使用USB或PCIE通信
+- 固件已加入5G模组QMI自动拨号脚本（刷写固件后只需要新建接口，开机自动拨号）
 
 ## 类型
 
@@ -55,6 +56,7 @@
 - USB烧录驱动程序：[点击查看](https://github.com/Siriling/NanoPi-R5S-R5C/tree/main/tools/%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F)
 - EMMC烧录软件：[点击查看](https://github.com/Siriling/NanoPi-R5S-R5C/tree/main/tools/%E7%83%A7%E5%BD%95%E8%BD%AF%E4%BB%B6)
 - 5G模组拨号脚本：[点击查看](https://github.com/Siriling/NanoPi-R5S-R5C/tree/main/tools/5G%E6%A8%A1%E7%BB%84%E6%8B%A8%E5%8F%B7%E8%84%9A%E6%9C%AC)
+- 5G模组使用教程：[点击查看](https://blog.siriling.com:1212/2023/03/18/openwrt-5g-modem/)
 
 # 五、展示
 ## 概览

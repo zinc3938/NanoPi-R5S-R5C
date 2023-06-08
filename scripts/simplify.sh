@@ -73,6 +73,14 @@ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 rm -rf package/wwan/driver/quectel_MHI
 svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_MHI package/wwan/driver/quectel_MHI
 
+# 添加5G模组拨号脚本
+cp -f $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem package/base-files/files/root/5GModem
+chmod -R 755 package/base-files/files/root/5GModem
+cp -f $GITHUB_WORKSPACE/config/etc/* package/base-files/files/etc
+
+# 应用配置自定义
+cp -f $GITHUB_WORKSPACE/config/applications/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
+
 # 修改默认IP地址
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 
@@ -94,9 +102,6 @@ sed -i '$a\\nmsgid "Resources link"\nmsgstr "资源链接"' feeds/luci/modules/l
 # 修改默认背景
 rm -rf customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/images/bg1.jpg customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-
-# 使用自己的配置
-cp -f $GITHUB_WORKSPACE/config/applications/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
 
 # pcie patch
 cp -f $GITHUB_WORKSPACE/999-fuck-rockchip-pcie.patch target/linux/rockchip/patches-6.1/999-fuck-rockchip-pcie.patch
