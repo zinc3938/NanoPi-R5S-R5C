@@ -1,4 +1,4 @@
-# 中文 | [English](https://github.com/DHDAXCW/NanoPi-R5S-2021/blob/main/EngLish.md)
+# 中文 | [English](https://github.com/Siriling/NanoPi-R5S-R5C/blob/main/EngLish.md)
 # NanoPi-R5S NanoPi-R5C
 
 # 目录
