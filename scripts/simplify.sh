@@ -6,51 +6,61 @@
 # Author: SuLingGG
 # Blog: https://mlapp.cn
 #=================================================
+# Clone community packages to package/community
 
-# 🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧
-
-# mt7921 mt7916
-rm -rf package/kernel/mac80211/Makefile
-cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
-
-# Clone community packages
+# Add application
 mkdir package/community
 pushd package/community
 
-# Add Lienol's Packages
-git clone --depth=1 https://github.com/Lienol/openwrt-package
+# Lienol's Packages
+svn export https://github.com/Lienol/openwrt-package/trunk Lienol-Packages
 rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-rm -rf openwrt-package/verysync
-rm -rf openwrt-package/luci-app-verysync
+rm -rf Lienol-Packages/verysync
+rm -rf Lienol-Packages/luci-app-verysync
 
-# Add luci-app-unblockneteasemusic
-rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
-git clone --branch master https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
-
-# Add luci-proto-minieap
-git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
-
-# Add OpenClash
+# OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
+cp -rf temp/luci-app-openclash/* luci-app-openclash
 
-# Add luci-app-onliner (need luci-app-nlbwmon)
-git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
+# Unblockneteasemusic
+rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
+svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
 
-# Add luci-theme
-git clone https://github.com/DHDAXCW/theme
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+# ADGuardHome
+rm -rf ../../customfeeds/packages/utils/adguardhome
+rm -rf ../../customfeeds/luci/applications/luci-app-adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
+cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
 
-# Add luci-app-services-wolplus
+# Poweroff
+svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
+
+# luci-app-services-wolplus
 svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
 
-# Add apk (Apk Packages Manager)
+# Minieap
+svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
+
+# Onliner (need luci-app-nlbwmon)
+svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
+
+# OpenAppFilter
+svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
+
+# Apk (Apk Packages Manager)
 svn export https://github.com/openwrt/packages/trunk/utils/apk
 
-# Add luci-app-poweroff
-git clone --depth=1 https://github.com/esirplayground/luci-app-poweroff
+# Theme
+rm -rf customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+svn export https://github.com/jerrykuku/luci-app-argon-config/trunk luci-app-argon-config
+cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
+git clone https://github.com/DHDAXCW/theme
 
-# Add OpenAppFilter
-git clone --depth=1 https://github.com/destan19/OpenAppFilter
+popd
 
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
@@ -61,25 +71,19 @@ export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
 sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
 popd
 
-# Fix mt76 wireless driver
-pushd package/kernel/mt76
-sed -i '/mt7662u_rom_patch.bin/a\\techo mt76-usb disable_usb_sg=1 > $\(1\)\/etc\/modules.d\/mt76-usb' Makefile
-popd
-
-# Change default shell to zsh
-sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+# MT7921、MT7916网卡驱动
+rm -rf package/kernel/mac80211/Makefile
+cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
 
 # 修复移远PCIe驱动(quectel_MHI)
 rm -rf package/wwan/driver/quectel_MHI
 svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_MHI package/wwan/driver/quectel_MHI
 
 # 添加5G模组拨号脚本
-cp -f $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem package/base-files/files/root/5GModem
-chmod -R 755 package/base-files/files/root/5GModem
-cp -f $GITHUB_WORKSPACE/config/etc/* package/base-files/files/etc
-
-# 应用配置自定义
-cp -f $GITHUB_WORKSPACE/config/applications/luci-app-adguardhome/* customfeeds/luci/applications/luci-app-adguardhome
+mkdir -p package/base-files/files/root/5GModem
+cp -rf $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem/* package/base-files/files/root/5GModem
+chmod -R a+x package/base-files/files/root/5GModem
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/etc/crontabs package/base-files/files/etc/crontabs
 
 # 修改默认IP地址
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
@@ -99,9 +103,20 @@ sed -i '/<tr><td width="33%"><%:CPU usage (%)%><\/td><td id="cpuusage">-<\/td><\
 sed -i '$a\\nmsgid "Compiler author"\nmsgstr "编译作者"' feeds/luci/modules/luci-base/po/zh-cn/base.po
 sed -i '$a\\nmsgid "Resources link"\nmsgstr "资源链接"' feeds/luci/modules/luci-base/po/zh-cn/base.po
 
-# 修改默认背景
-rm -rf customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-cp -f $GITHUB_WORKSPACE/images/bg1.jpg customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+# 更换内核版本
+# sed -i 's/5.15/6.1/g' target/linux/x86/Makefil
+
+# 更默认命令行样式（shell to zsh）
+sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
+
+# 修改banner
+rm -rf package/base-files/files/etc/banner
+wget -P package/base-files/files/etc https://raw.githubusercontent.com/DHDAXCW/lede-rockchip/stable/package/base-files/files/etc/banner
+
+# Fix mt76 wireless driver
+pushd package/kernel/mt76
+sed -i '/mt7662u_rom_patch.bin/a\\techo mt76-usb disable_usb_sg=1 > $\(1\)\/etc\/modules.d\/mt76-usb' Makefile
+popd
 
 # pcie patch
 cp -f $GITHUB_WORKSPACE/999-fuck-rockchip-pcie.patch target/linux/rockchip/patches-6.1/999-fuck-rockchip-pcie.patch
