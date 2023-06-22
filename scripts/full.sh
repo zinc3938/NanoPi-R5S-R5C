@@ -12,70 +12,100 @@
 mkdir package/community
 pushd package/community
 
-# mt7921 mt7916
-rm -rf package/kernel/mac80211/Makefile
-cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
+# 系统相关应用
+#Poweroff
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-poweroff
+#fileassistant
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-fileassistant
+#guest-wifi
+rm -rf ../../customfeeds/luci/applications/luci-app-guest-wifi
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-guest-wifi
+#Onliner (need luci-app-nlbwmon)
+svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
+#Eqos
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-eqos
+#Wolplus
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-wolplus
 
-# Lienol's Packages
-svn export https://github.com/Lienol/openwrt-package/trunk Lienol-Packages
-rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
-rm -rf Lienol-Packages/verysync
-rm -rf Lienol-Packages/luci-app-verysync
+# 存储相关应用
+svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-gowebdav
 
-# luci-app-ssr-plus
+# 科学上网和代理应用
+#SSR
 svn export https://github.com/fw876/helloworld/trunk helloworld
-
-# Passwall和Passwall2
+#Passwall和Passwall2
 svn export https://github.com/xiaorouji/openwrt-passwall/trunk openwrt-passwall
 svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
 svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
-
-# VSSR（Hello Word）
+#VSSR（Hello Word）
 svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
 svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
-
-# OpenClash
+#OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-openclash temp/luci-app-openclash
 cp -rf temp/luci-app-openclash/* luci-app-openclash
 
-# Unblockneteasemusic
-rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
-svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
-
-# ADGuardHome
+# 去广告
+#ADGuardHome
 rm -rf ../../customfeeds/packages/utils/adguardhome
 rm -rf ../../customfeeds/luci/applications/luci-app-adguardhome
 svn export https://github.com/kenzok8/openwrt-packages/trunk/adguardhome
 svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/general/applications/luci-app-adguardhome temp/luci-app-adguardhome
 cp -rf temp/luci-app-adguardhome/* luci-app-adguardhome
+#dnsfilter
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-dnsfilter
+#ikoolproxy
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-ikoolproxy
 
-# Poweroff
-svn export https://github.com/esirplayground/luci-app-poweroff/trunk luci-app-poweroff
+# docker应用
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-filebrowser
+# rm -rf ../../customfeeds/luci/applications/luci-app-kodexplorer
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-kodexplorer
+# rm -rf ../../customfeeds/packages/utils/verysync
+# rm -rf ../../customfeeds/luci/applications/luci-app-verysync
+# svn export https://github.com/kenzok8/small-package/trunk/verysync
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-verysync
 
-# luci-app-services-wolplus
-svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
+# VPN服务器
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-ssr-mudb-server
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-ipsec-server
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-pptp-server
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-softethervpn
 
-# luci-app-services-wolplus
-svn export https://github.com/msylgj/OpenWrt_luci-app/trunk/luci-app-services-wolplus
+# DNS
+# svn export https://github.com/kenzok8/small-package/trunk/mosdns
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-mosdns
+# svn export https://github.com/kenzok8/small-package/trunk/smartdns
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-smartdns
 
-# Minieap
-svn export https://github.com/ysc3839/luci-proto-minieap/trunk luci-proto-minieap
+# DDNS
+# svn export https://github.com/kenzok8/small-package/trunk/ddnsto
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-ddnsto
 
-# Onliner (need luci-app-nlbwmon)
-svn export https://github.com/rufengsuixing/luci-app-onliner/trunk luci-app-onliner
+# iStore应用
+svn export https://github.com/kenzok8/small-package/trunk/taskd
+svn export https://github.com/kenzok8/small-package/trunk/luci-lib-taskd
+svn export https://github.com/kenzok8/small-package/trunk/luci-lib-xterm
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-store
+svn export https://github.com/kenzok8/small-package/trunk/quickstart
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-quickstart
 
-# OpenAppFilter
+# 其他
+#Socat
+rm -rf ../../customfeeds/luci/applications/luci-app-socat
+svn export https://github.com/kenzok8/small-package/trunk/luci-app-socat
+#Unblockneteasemusic
+rm -rf ../../customfeeds/luci/applications/luci-app-unblockmusic
+svn export https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
+#OpenAppFilter
 svn export https://github.com/destan19/OpenAppFilter/trunk OpenAppFilter
 
-# DDNSto & Linkease
-svn export https://github.com/linkease/nas-packages-luci/trunk/luci/luci-app-ddnsto
-svn export https://github.com/linkease/nas-packages/trunk/network/services/ddnsto
-
-# Subconverter
-svn export https://github.com/tindy2013/openwrt-subconverter/trunk openwrt-subconverter
+# 网络接口
+#Minieap
+svn export https://github.com/kenzok8/small-package/trunk/luci-proto-minieap
+# svn export https://github.com/kenzok8/small-package/trunk/luci-app-minieap
 
 # Apk (Apk Packages Manager)
 svn export https://github.com/openwrt/packages/trunk/utils/apk
@@ -102,7 +132,7 @@ export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
 sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
 popd
 
-# MT7921、MT7916网卡驱动
+# MT7921、MT7922、MT7916网卡驱动
 rm -rf package/kernel/mac80211/Makefile
 cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
 
@@ -110,7 +140,13 @@ cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
 rm -rf package/wwan/driver/quectel_MHI
 svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_MHI package/wwan/driver/quectel_MHI
 
-# 添加5G模组拨号脚本
+# 5G模组短信插件
+rm -rf customfeeds/package/utils/sms-tool
+rm -rf customfeeds/luci/applications/luci-app-sms-tool
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/sms-tool package/community/sms-tool
+svn export https://github.com/dwj0/luci-app-sms-tool/trunk/luci-app-sms-tool package/community/luci-app-sms-tool
+
+# 5G模组拨号脚本
 mkdir -p package/base-files/files/root/5GModem
 cp -rf $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem/* package/base-files/files/root/5GModem
 chmod -R a+x package/base-files/files/root/5GModem
