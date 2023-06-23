@@ -111,10 +111,10 @@ svn export https://github.com/kenzok8/small-package/trunk/luci-proto-minieap
 svn export https://github.com/openwrt/packages/trunk/utils/apk
 
 # 主题
-svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-argon-config
-rm -rf customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
 git clone https://github.com/DHDAXCW/theme
+svn export https://github.com/kenzok8/openwrt-packages/trunk/luci-app-argon-config
+rm -rf ../../customfeeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/images/bg1.jpg luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg # 修改默认背景
 
 popd
 
