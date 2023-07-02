@@ -134,6 +134,16 @@ export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
 sed -i "s/${orig_version}/${orig_version} (${date_version})/g" zzz-default-settings
 popd
 
+# CF-811AC无线网卡驱动（rtl8821cu）
+# svn export https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8812au-ac
+# svn export https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8188eu
+# svn export https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8192du
+# svn export https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl88x2bu
+svn export https://github.com/immortalwrt/immortalwrt/trunk/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
+svn export https://github.com/immortalwrt/immortalwrt/trunk/package/kernel/rtl8188eu package/kernel/rtl8188eu
+svn export https://github.com/immortalwrt/immortalwrt/trunk/package/kernel/rtl8192du package/kernel/rtl8192du
+svn export https://github.com/immortalwrt/immortalwrt/trunk/package/kernel/rtl88x2bu package/kernel/rtl88x2bu
+
 # MT7921、MT7922、MT7916网卡驱动
 rm -rf package/kernel/mac80211/Makefile
 cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
