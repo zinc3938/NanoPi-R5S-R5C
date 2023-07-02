@@ -141,7 +141,7 @@ popd
 # svn export https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl88x2bu
 svn export https://github.com/immortalwrt/immortalwrt/trunk/package/kernel/rtl8812au-ac package/kernel/rtl8812au-ac
 svn export https://github.com/immortalwrt/immortalwrt/trunk/package/kernel/rtl8188eu package/kernel/rtl8188eu
-svn export https://github.com/immortalwrt/immortalwrt/trunk/package/kernel/rtl8192du package/kernel/rtl8821cu
+svn export https://github.com/immortalwrt/immortalwrt/trunk/package/kernel/rtl8821cu package/kernel/rtl8821cu
 svn export https://github.com/immortalwrt/immortalwrt/trunk/package/kernel/rtl88x2bu package/kernel/rtl88x2bu
 
 # MT7921、MT7922、MT7916网卡驱动
