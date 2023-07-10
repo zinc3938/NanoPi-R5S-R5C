@@ -69,7 +69,7 @@
 ![plugins](images/plugins.png)
 
 ## 5G模组接口
-![plugins](images/wwan_5g.png)
+![wwan_5g](images/wwan_5g.png)
 
 
 # 六、鸣谢
