@@ -190,10 +190,9 @@ jobs:
           [ $UPLOAD_WETRANSFER = true ] && echo "- 🚀 [点我快速下载](${{ steps.wetransfer.outputs.url }})" >> release.txt
           echo "
           - 🔗 后台地址：192.168.10.1
-          - 🔑 后台密码：password
-          ## 🍻 固件类型
-          - 完整版：full
-          - 精简版：simplify" >> release.txt
+          echo "- 🔑 后台密码：password
+          echo "## 🍻 固件类型
+          echo "- 测试版：test" >> release.txt
           echo "status=success" >> $GITHUB_OUTPUT
           
     - name: Upload firmware to release
