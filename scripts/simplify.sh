@@ -154,8 +154,7 @@ cp -rf temp/luci-app-sms-tool/* package/community/luci-app-sms-tool
 mkdir -p package/base-files/files/root/5GModem
 cp -rf $GITHUB_WORKSPACE/tools/5G模组拨号脚本/5GModem/* package/base-files/files/root/5GModem
 chmod -R a+x package/base-files/files/root/5GModem
-# svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/lede/general/etc/crontabs package/base-files/files/etc/crontabs
-echo -e "#* * * * * bash /root/5GModem/5g_crontab.sh" >> package/base-files/files/etc/crontabs/root
+svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/lede/general/etc/crontabs package/base-files/files/etc/crontabs
 
 # 修改默认IP地址
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
