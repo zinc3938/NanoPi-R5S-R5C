@@ -138,6 +138,10 @@ cp -f $GITHUB_WORKSPACE/Makefile package/kernel/mac80211/Makefile
 rm -rf package/wwan/driver/quectel_MHI
 svn export https://github.com/Siriling/5G-Modem-Support/trunk/quectel_MHI package/wwan/driver/quectel_MHI
 
+#修复IPV6下发问题
+rm -rf customfeeds/luci/applications/luci-app-hypermodem
+svn export https://github.com/Siriling/5G-Modem-Support/trunk/luci-app-hypermodem package/community/luci-app-hypermodem
+
 # 5G模组短信插件
 rm -rf customfeeds/package/utils/sms-tool
 rm -rf customfeeds/luci/applications/luci-app-sms-tool
