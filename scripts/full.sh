@@ -31,15 +31,17 @@ svn export https://github.com/kenzok8/small-package/trunk/luci-app-wolplus
 svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-gowebdav
 
 # 科学上网和代理应用
+#SSR,Bypass,Passwall,Passwall2,VSSR
+svn export https://github.com/kenzok8/small/trunk outside
 #SSR
-svn export https://github.com/fw876/helloworld/trunk helloworld
+# svn export https://github.com/fw876/helloworld/trunk helloworld
 #Passwall和Passwall2
-svn export https://github.com/xiaorouji/openwrt-passwall/trunk openwrt-passwall
-svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
-svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
+# svn export https://github.com/xiaorouji/openwrt-passwall/trunk openwrt-passwall
+# svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
+# svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
 #VSSR（Hello Word）
-svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
-svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
+# svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
+# svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
 #OpenClash
 svn export https://github.com/vernesong/OpenClash/trunk/luci-app-openclash
 svn export https://github.com/Siriling/OpenWRT-MyConfig/trunk/configs/lede/general/applications/luci-app-openclash temp/luci-app-openclash
