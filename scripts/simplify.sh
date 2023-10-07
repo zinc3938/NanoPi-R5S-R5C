@@ -31,12 +31,6 @@ svn export https://github.com/kenzok8/small-package/trunk/luci-app-wolplus
 svn export https://github.com/immortalwrt/luci/trunk/applications/luci-app-gowebdav
 
 # 科学上网和代理应用
-#SSR
-# svn export https://github.com/fw876/helloworld/trunk helloworld
-#Passwall和Passwall2
-# svn export https://github.com/xiaorouji/openwrt-passwall/trunk openwrt-passwall
-# svn export https://github.com/xiaorouji/openwrt-passwall/branches/luci/luci-app-passwall
-# svn export https://github.com/xiaorouji/openwrt-passwall2/trunk/luci-app-passwall2
 #VSSR（Hello Word）
 # svn export https://github.com/jerrykuku/lua-maxminddb/trunk lua-maxminddb
 # svn export https://github.com/jerrykuku/luci-app-vssr/trunk luci-app-vssr
