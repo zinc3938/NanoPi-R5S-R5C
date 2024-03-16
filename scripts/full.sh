@@ -9,10 +9,7 @@
 # Clone community packages to package/community
 
 # 删除冲突插件
-echo "111111"
-find -name mosdns
-# rm -rf feeds/luci/applications/luci-app-mosdns && rm -rf feeds/packages/net/{alist,adguardhome,smartdns}
-echo "222222"
+rm -rf customfeeds/luci/applications/luci-app-mosdns && rm -rf customfeeds/packages/net/{alist,adguardhome,smartdns}
 
 # 添加第三方应用
 mkdir kenzok8
