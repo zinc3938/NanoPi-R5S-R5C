@@ -41,25 +41,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Initialization Environment
-      env:
-        DEBIAN_FRONTEND: noninteractive
-      run: |
-        echo -e "Total CPU cores\t: $(nproc)"
-        cat /proc/cpuinfo | grep 'model name'
-        free -h
-        uname -a
-        [ -f /proc/version ] && cat /proc/version
-        [ -f /etc/issue.net ] && cat /etc/issue.net
-        [ -f /etc/issue ] && cat /etc/issue
-        ulimit -a
-        
     - name: Clone Source Code
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        cd openwrt
-        
+
     - name: Update Feeds
       id: update
       run: |
@@ -71,12 +57,12 @@ jobs:
         git clone --depth=1 https://github.com/DHDAXCW/luci customfeeds/luci
         chmod +x ../scripts/*.sh
         ../scripts/hook-feeds.sh
-        
+          
     - name: Install Feeds
       run: |
         cd $OPENWRTROOT
         ./scripts/feeds install -a
-        
+
     - name: Load Custom Configuration
       run: |
         [ -e files ] && mv files $OPENWRTROOT/files
@@ -84,10 +70,10 @@ jobs:
         chmod +x scripts/*.sh
         cd $OPENWRTROOT
         ../$DIY_SH
-        ../scripts/preset-clash-core.sh arm64
+        ../scripts/preset-clash-core.sh amd64
         ../scripts/preset-terminal-tools.sh
         make defconfig
-        
+          
     - name: Download Package
       id: package
       run: |
