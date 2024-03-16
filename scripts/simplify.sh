@@ -257,7 +257,7 @@ popd
 cp -f $GITHUB_WORKSPACE/999-fuck-rockchip-pcie.patch target/linux/rockchip/patches-6.1/999-fuck-rockchip-pcie.patch
 
 # 编译新版Sing-box和hysteria，需golang版本1.20或者以上版本
-pushd feeds/packages/lang
+pushd customfeeds/packages/lang
 rm -rf golang
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang customfeeds/packages/lang/golang
 popd
