@@ -41,17 +41,19 @@ popd
 # Add application
 mkdir package/community
 pushd package/community
+
 # 系统相关应用
 #Poweroff
 mkdir luci-app-poweroff
-cp -rf ../../kenzok8/luci-app-poweroff/* luci-app-poweroff
+cp -rf ../../kenzok8-small/luci-app-poweroff/* luci-app-poweroff
 #fileassistant
+rm -rf ../../customfeeds/luci/applications/luci-app-fileassistant
 mkdir luci-app-fileassistant
 cp -rf ../../kenzok8/luci-app-fileassistant/* luci-app-fileassistant
 #guest-wifi
 rm -rf ../../customfeeds/luci/applications/luci-app-guest-wifi
 mkdir luci-app-guest-wifi
-cp -rf ../../kenzok8/luci-app-guest-wifi/* luci-app-guest-wifi
+cp -rf ../../kenzok8-small/luci-app-guest-wifi/* luci-app-guest-wifi
 #Onliner (need luci-app-nlbwmon)
 git clone --depth=1 https://github.com/rufengsuixing/luci-app-onliner
 #Eqos
@@ -130,7 +132,7 @@ mkdir quickstart
 mkdir luci-app-quickstart
 cp -rf ../../kenzok8-small/taskd/* taskd
 cp -rf ../../kenzok8-small/luci-lib-taskd/* luci-lib-taskd
-cp -rf ../../kenzok8-small/luci-app-xterm/* luci-app-xterm
+cp -rf ../../kenzok8-small/luci-lib-xterm/* luci-lib-xterm
 cp -rf ../../kenzok8-small/luci-app-store/* luci-app-store
 cp -rf ../../kenzok8-small/quickstart/* quickstart
 cp -rf ../../kenzok8-small/luci-app-quickstart/* luci-app-quickstart
