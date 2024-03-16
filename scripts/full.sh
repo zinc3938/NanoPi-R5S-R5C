@@ -268,5 +268,5 @@ cp -f $GITHUB_WORKSPACE/999-fuck-rockchip-pcie.patch target/linux/rockchip/patch
 # 编译新版Sing-box和hysteria，需golang版本1.20或者以上版本
 pushd feeds/packages/lang
 rm -rf golang
-svn co https://github.com/openwrt/packages/branches/openwrt-23.05/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 popd
