@@ -8,6 +8,13 @@
 #=================================================
 # Clone community packages to package/community
 
+# 编译新版Sing-box和hysteria，需golang版本1.20或者以上版本
+rm -rf feeds/packages/lang/golang
+rm -rf customfeeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x customfeeds/packages/lang/golang
+# git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
+
 # 删除冲突插件
 rm -rf customfeeds/luci/applications/luci-app-mosdns && rm -rf customfeeds/packages/net/{alist,adguardhome,smartdns}
 
@@ -269,9 +276,3 @@ popd
 
 # pcie patch
 cp -f $GITHUB_WORKSPACE/999-fuck-rockchip-pcie.patch target/linux/rockchip/patches-6.1/999-fuck-rockchip-pcie.patch
-
-# 编译新版Sing-box和hysteria，需golang版本1.20或者以上版本
-pushd feeds/packages/lang
-rm -rf golang
-git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
-popd
